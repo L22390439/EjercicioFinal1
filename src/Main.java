@@ -12,8 +12,6 @@ public class Main {
         Horario horario = new Horario("4:30 de la tarde", "5 de la tarde");
         Piloto piloto = new Piloto("Julian","Alvarez",1451,45,15);
 
-        LocalTime horaIni = LocalTime.of(4,30);
-        LocalTime horaFin = LocalTime.of(5,00);
 
         System.out.println("Información del Intinerario:");
 
@@ -45,17 +43,32 @@ public class Main {
         intinerario.mostrarInformacion();
 
 
-        int comparacion;
-        comparacion = horaIni.compareTo(horaFin);
-        if (comparacion<1) {
-            System.out.println("El horario choca con otro piloto");
+       LocalTime horaIni = LocalTime.of(04,30);
+       LocalTime horaFin = LocalTime.of(05,00);
+       LocalTime horaIni2 = LocalTime.of(04,30);
+       LocalTime horaFin2 = LocalTime.of(10,43);
+
+       int comparacion;
+       comparacion = horaIni.compareTo(horaFin);
+       if (comparacion<0){
+           System.out.println("El horario no choca con alguno otro piloto");
+       }
+       else if (comparacion>1){
+           System.out.println(("El horario no choca con alguno otro piloto"));
+       }
+       else {
+           System.out.println("Ambos tienen el mismo horario");
+       }
+        int comparacion2;
+        comparacion2 = horaIni2.compareTo(horaFin2);
+        if (comparacion2<0){
+            System.out.println("El horario no choca con alguno otro piloto");
         }
-        else if (comparacion>1){
+        else if (comparacion2>1){
             System.out.println(("El horario no choca con alguno otro piloto"));
         }
         else {
             System.out.println("Ambos tienen el mismo horario");
         }
+        }
     }
-
-}

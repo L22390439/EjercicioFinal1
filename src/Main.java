@@ -2,6 +2,7 @@ import paqprincipal.*;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,18 +12,50 @@ public class Main {
         Horario horario = new Horario("4:30 de la tarde", "5 de la tarde");
         Piloto piloto = new Piloto("Julian","Alvarez",1451,45,15);
 
-        /*LocalTime horaIni = LocalTime.of(4,30);
-        LocalTime horaFin = LocalTime.of(4,30);
-
-        System.out.println(horaFin.compareTo(horaIni));*/
+        LocalTime horaIni = LocalTime.of(4,30);
+        LocalTime horaFin = LocalTime.of(5,00);
 
         System.out.println("Información del Intinerario:");
-            intinerario.setCiudadOrigen();
-            intinerario.setCiudadDestino();
-            intinerario.getHoraSalida();
-            intinerario.setPiloto();
-            intinerario.mostrarInformacion();
 
+        Scanner teclado = new Scanner(System.in);
+
+        String ciudadDestino;
+        String ciudadPrincpal;
+        String horaSalida;
+        String nombrePiloto;
+
+        System.out.println("Ciudad de origen");
+        ciudadPrincpal=teclado.nextLine();
+        System.out.println("Ciudad a que quiere viajar");
+        ciudadDestino=teclado.nextLine();
+        System.out.println("Su hora de salida estimada");
+        horaSalida=teclado.nextLine();
+        System.out.println("El piloto a cargo");
+        nombrePiloto=teclado.nextLine();
+
+        /*System.out.println("La ciudad de origen: " + ciudadOrigen);
+        System.out.println("La ciudad de destino: " + ciudadDestino);
+        System.out.println("Hora estimada de despege: " + horaSalida);
+        System.out.println("Piloto acargo del vuelo: " + nombrePiloto);*/
+
+        intinerario.setCiudadOrigen();
+        intinerario.setCiudadDestino();
+        intinerario.getHoraSalida();
+        intinerario.setPiloto();
+        intinerario.mostrarInformacion();
+
+
+        int comparacion;
+        comparacion = horaIni.compareTo(horaFin);
+        if (comparacion<1) {
+            System.out.println("El horario choca con otro piloto");
+        }
+        else if (comparacion>1){
+            System.out.println(("El horario no choca con alguno otro piloto"));
+        }
+        else {
+            System.out.println("Ambos tienen el mismo horario");
+        }
     }
 
 }

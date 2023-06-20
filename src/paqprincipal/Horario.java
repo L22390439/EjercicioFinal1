@@ -5,11 +5,6 @@ public class Horario {
     String horaSalida;
     String horaLLegada;
     //metodos
-    LocalTime horaIni = LocalTime.of(4, 30);
-    LocalTime horaFin = LocalTime.of(4, 30);
-
-    public LocalTime getHoraIni(){return horaIni;}
-    public LocalTime getHoraFin(){return horaFin;}
 
     //getter
     public String getHoraSalida(){
